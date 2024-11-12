@@ -8,6 +8,7 @@ import ToolkitProvider, {
 } from "react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux'
 
 const { SearchBar } = Search;
 
@@ -64,6 +65,12 @@ const defaultSorted = [
   },
 ];
 
+const mapStateToProps = (state) => {
+  return {
+    users: state.users.users
+  }
+}
+
 const TableComponents = (props) => {
   return (
     <div>
@@ -105,4 +112,4 @@ const TableComponents = (props) => {
   );
 };
 
-export default TableComponents;
+export default connect(mapStateToProps, null)(TableComponents);

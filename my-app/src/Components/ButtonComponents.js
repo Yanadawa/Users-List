@@ -2,6 +2,13 @@ import React from "react";
 import { Button, Container } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfo } from "@fortawesome/free-solid-svg-icons";
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => {
+  return {
+    title: state.users.title
+  }
+}
 
 const ButtonComponent = (props) => {
   return (
@@ -19,4 +26,4 @@ const ButtonComponent = (props) => {
   );
 };
 
-export default ButtonComponent
+export default connect(mapStateToProps, null)(ButtonComponent)
